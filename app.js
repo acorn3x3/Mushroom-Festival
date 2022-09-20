@@ -122,7 +122,6 @@ sayGoodbyeButton.addEventListener('click', () => {
 function displayMessage() {
     messageSection.textContent = message;
 }
-
 function displayMushrooms() {
     mushroomContainer.innerHTML = '';
 
