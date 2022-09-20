@@ -41,14 +41,21 @@ const foundMessage = ['No mushrooms found!', 'You found 1 mushroom', 'You found 
 huntMushroomsButton.addEventListener('click', () => {
     const found = getRandomItem(amountFound);
 
+// loop for each mushroom we need to     
     for (let i = 0; i < found; i++) {
+        
+// get a random mushroom        
         const mushroomType = getRandomItem(mushroomTypeFound);
+        
+
+// create a mushroom object
         const mushroom = {
             type: mushroomType.type,
         };
         // > add the new mushroom to the mushrooms state
     }
-
+    mushrooms.push(mushroom);
+// push into mushroom array
     message = foundMessage[found];
 
     displayMessage();
