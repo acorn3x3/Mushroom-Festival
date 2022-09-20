@@ -178,7 +178,7 @@ function displayFriends() {
 
         friendsSection.append(friendEl);
     }
-
+a
 
 
 }
