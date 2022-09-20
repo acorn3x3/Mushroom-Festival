@@ -54,8 +54,13 @@ huntMushroomsButton.addEventListener('click', () => {
            
         };
         // > add the new mushroom to the mushrooms state
+    
+        mushrooms.push(mushroom);
     }
+  
 
+
+// push into mushroom array
     message = foundMessage[found];
 
     displayMessage();
@@ -63,9 +68,13 @@ huntMushroomsButton.addEventListener('click', () => {
 });
 
 addFriendForm.addEventListener('submit', (e) => {
+    // /\stop the form from re-posting to the same browser page
     e.preventDefault();
+    // use a form data object
     const formData = new FormData(addFriendForm);
-
+    // make a new friend object:
+   
+   
     // > create a new friend, with a "name" property that
     // is populated from `formData.get('name')` and a
     // "satisfied" property with an initial value of 0
