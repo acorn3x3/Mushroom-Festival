@@ -53,8 +53,12 @@ huntMushroomsButton.addEventListener('click', () => {
             type: mushroomType.type,
         };
         // > add the new mushroom to the mushrooms state
+    
+        mushrooms.push(mushroom);
     }
-    mushrooms.push(mushroom);
+  
+
+
 // push into mushroom array
     message = foundMessage[found];
 
@@ -63,7 +67,7 @@ huntMushroomsButton.addEventListener('click', () => {
 });
 
 addFriendForm.addEventListener('submit', (e) => {
-    // stop the form from re-posting to the same browser page
+    // /\stop the form from re-posting to the same browser page
     e.preventDefault();
     // use a form data object
     const formData = new FormData(addFriendForm);
@@ -76,7 +80,7 @@ addFriendForm.addEventListener('submit', (e) => {
    
     const friend = {
         name: formData.get('name'),
-        satisfied: 0
+        satisfied: 0,
     };
 
     friends.push(friend);
@@ -96,14 +100,13 @@ addFriendForm.addEventListener('submit', (e) => {
 
 sayGoodbyeButton.addEventListener('click', () => {
     const stillHungry = [];
+   
     for (const friend of friends) {
-
-        for (const friend of friends) {
-            if (!friend.hasMushroom) {
-                stillHungry.push(friend);
+        if (friend.satisfied < 3) {
+            stillHungry.push(friend);
                 
-            }
         }
+        
         // > if the friend is not fully satisfied, push
         
         // them into the stillHungry array
@@ -140,24 +143,17 @@ function displayFriends() {
         const friendEl = renderFriend(friend);
 
         friendEl.addEventListener('click', () => {
-            if (friend.hasMushroom) {
+            if (!mushroom.length) {
+                message = `not enough mushrooms` ;
+            } else if (friend.satsified === 3) {
                 message = `$(friend.name) has their mushrooms, pick someone else!`;
+            
             } else {
-                let mushroom = null;
-                for (const mushroomCandidate.name === friend.mushroom) {
-                    mushroom = mushroomCandidate;
-                     break;
-                    }  
-          }
-          if (mushroom) {
-            const index = mushroom.indexOf(mushroom);
-            mushrooms.splice(index, 1);
-            friend.hasMushroom = true;
-            message += `${friend.name} is looking for ${mushroom.name};
-          } else {
-            message += `Hobbits need to go foraging for ${friend.food} ` ;
-}
-          }
+                const mushroom = mushrooms.pop();
+                friend.satisfied++;
+                message = ` Hobbits need to go foraging for ${friend.food}.`;
+            }
+          
 
             // > handle the three possible outcomes:
             // 1. No mushrooms, set a message to go hunt for more
@@ -180,8 +176,9 @@ function displayFriends() {
 
         friendsSection.append(friendEl);
     }
-}
 
-displayMessage();
-displayMushrooms();
-displayFriends();
+
+    displayMessage();
+    displayMushrooms();
+    displayFriends();
+}
