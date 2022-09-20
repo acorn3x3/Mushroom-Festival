@@ -63,19 +63,32 @@ huntMushroomsButton.addEventListener('click', () => {
 });
 
 addFriendForm.addEventListener('submit', (e) => {
+    // stop the form from re-posting to the same browser page
     e.preventDefault();
+    // use a form data object
     const formData = new FormData(addFriendForm);
-
+    // make a new friend object:
+   
+   
     // > create a new friend, with a "name" property that
     // is populated from `formData.get('name')` and a
     // "satisfied" property with an initial value of 0
+   
+    const friend = {
+        name: formData.get('name'),
+        satisfied: 0
+    };
+
+    friends.push(friend);
+
+  
 
     // > add the new friend to the friends array
 
     // > set the message state to let the user know
     // they invited a new friend to the festival, include the friend's
     // name in the message
-
+    message = '${friend.name} has been invited to the festival and wants ${friend.mushroom}';
     addFriendForm.reset();
 
     // > call the display functions that need to re-display
@@ -84,8 +97,17 @@ addFriendForm.addEventListener('submit', (e) => {
 sayGoodbyeButton.addEventListener('click', () => {
     const stillHungry = [];
     for (const friend of friends) {
+
+        for (const friend of friends) {
+            if (!friend.hasMushroom) {
+                stillHungry.push(friend);
+                
+            }
+        }
         // > if the friend is not fully satisfied, push
+        
         // them into the stillHungry array
+
     }
     friends = stillHungry;
     displayFriends();
