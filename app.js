@@ -152,7 +152,7 @@ function displayFriends() {
             } else {
                 mushrooms.pop();
                 friend.satisfied++;
-                message = `${friend.name} is satisfied!`
+                message = `${friend.name} is satisfied!`;
                 
             }
           
