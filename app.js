@@ -84,10 +84,11 @@ addFriendForm.addEventListener('submit', (e) => {
     // > set the message state to let the user know
     // they invited a new friend to the festival, include the friend's
     // name in the message
-
+    message = `${friend.name} has been invited to the festival and wants ${friend.mushroom}`;
     addFriendForm.reset();
 
     // > call the display functions that need to re-display
+    displayFriends();
 });
 
 sayGoodbyeButton.addEventListener('click', () => {
