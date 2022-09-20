@@ -78,6 +78,15 @@ addFriendForm.addEventListener('submit', (e) => {
     // > create a new friend, with a "name" property that
     // is populated from `formData.get('name')` and a
     // "satisfied" property with an initial value of 0
+   
+    const friend = {
+        name: formData.get('name'),
+        satisfied: 0,
+    };
+
+    friends.push(friend);
+
+  
 
     // > add the new friend to the friends array
 
@@ -113,7 +122,6 @@ sayGoodbyeButton.addEventListener('click', () => {
 function displayMessage() {
     messageSection.textContent = message;
 }
-
 
 function displayMushrooms() {
     mushroomContainer.innerHTML = '';
