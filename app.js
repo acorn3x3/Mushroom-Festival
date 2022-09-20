@@ -114,11 +114,19 @@ function displayMessage() {
     messageSection.textContent = message;
 }
 
+
 function displayMushrooms() {
     mushroomContainer.innerHTML = '';
 
+    for (let mushroom of mushrooms) {
+        const mushroomEl = renderMushroom(mushroom);
+        mushroomContainer.append(mushroomEl);
+    }
+
     // > loop the mushrooms
+
     // create a mushroom element using the renderMushroom function
+
     // append it to the container
 }
 
